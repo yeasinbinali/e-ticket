@@ -6,6 +6,9 @@ function handleSeatSelection(event) {
     selectedSeat.classList.add('bg-green-600');
     selectedSeat.classList.add('text-white');
 
+    const selectedSeatNumber = selectedSeat.innerText;
+
+
     clickedSeat.push(selectedSeat);
 
     const totalSeat = document.getElementById('total-seat');
@@ -16,17 +19,19 @@ function handleSeatSelection(event) {
 
     const priceContainer = document.getElementById('price-container');
 
-    const seat = document.createElement('p');
-    seat = selectedSeat.innerText;
+    const seat = document.getElementById('seat');
+    const seatClass = document.getElementById('class');
+    const seatPrice = document.getElementById('price');
+
+    seat.innerText = selectedSeatNumber;
     priceContainer.appendChild(seat);
 
-    const economy = document.createElement('p');
-    economy = 'Economy';
-    priceContainer.appendChild(economy);
+    seatClass.innerText = 'Economy';
+    priceContainer.appendChild(seatClass);
 
-    const price = document.createElement('p');
-    price = 500;
-    priceContainer.appendChild(price);
+    seatPrice.innerText = 500;
+    priceContainer.appendChild(seatPrice);
+
 }
 
 
