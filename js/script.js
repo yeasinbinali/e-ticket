@@ -83,3 +83,38 @@ phoneNumberInput.addEventListener("input", function () {
         nextButton.style.cursor = "not-allowed";
     }
 });
+
+
+
+function calculateTheTotalPrice(coupon) {
+    const countTotalPrice = document.getElementById("grand-total-price");
+    const totalPrice = selectedSeats.length * 550;
+    let discountedPrice = totalPrice;
+
+    // Applying discounts based on coupon
+    if (coupon === "NEW15") {
+        discountedPrice *= 0.85;
+    } else if (coupon === "COUPLE 20") {
+        discountedPrice *= 0.8;
+    } else {
+        alert("Invalid coupon code.");
+        return;
+    }
+
+    countTotalPrice.textContent = discountedPrice.toFixed(2);
+    applySection.style.display = "none"; // Hide the apply section after applying the coupon
+}
+
+function updateSeatInDisplay() {
+    const tableBody = document.getElementById("seat-table-body");
+    tableBody.innerHTML = "";
+    selectedSeats.forEach((seat) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${seat}</td>
+            <td>Economy</td>
+            <td>550</td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
