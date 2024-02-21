@@ -94,7 +94,7 @@ function calculateTheTotalPrice(coupon) {
     // Applying discounts based on coupon
     if (coupon === "NEW15") {
         discountedPrice *= 0.85;
-    } else if (coupon === "COUPLE 20") {
+    } else if (coupon === "Couple 20") {
         discountedPrice *= 0.8;
     } else {
         alert("Invalid coupon code.");
